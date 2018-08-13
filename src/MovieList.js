@@ -6,9 +6,9 @@ class MovieList extends Component {
     render() {
         const baseURL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'
         return (
-            <section className="MovieList">
+            <section className="movie-list">
                 <ul>
-                    {movies.map((movie, index) => {
+                    {movies.results.map((movie, index) => {
                         return <Movie title={movie.title} image={baseURL + movie.poster_path} plot={movie.overview} key={index} />
                     })}
                 </ul>

@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <header>
-          <h1>{title}</h1>
+          <h1 className="center">{title}</h1>
           <MovieList />
         </header>
       </div>

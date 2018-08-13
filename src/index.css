@@ -3,3 +3,34 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.center {
+  text-align: center;
+}
+
+.movie {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em;
+}
+
+.movie-title-and-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5em;
+}
+
+.movie-description {
+  width: 25em;
+}
+
+.movie img {
+  height: 10em;
+  width: auto;
+}
+
+.movie p {
+  padding: 1em;
+}
