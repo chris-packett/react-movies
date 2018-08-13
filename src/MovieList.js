@@ -4,12 +4,19 @@ import movies from './1989.json'
 
 class MovieList extends Component {
     render() {
-        const baseURL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2'
+        // let new_release_date = movies.results.release_date.split('-').join()
+        // new_release_date = parseInt(new_release_date)
+        // console.log(new_release_date)
         return (
-            <section className="movie-list">
-                <ul>
+            <section>
+                <ul className="movie-list">
                     {movies.results.map((movie, index) => {
-                        return <Movie title={movie.title} image={baseURL + movie.poster_path} plot={movie.overview} key={index} />
+                        return <Movie 
+                        title={movie.title} 
+                        image={movie.poster_path} 
+                        plot={movie.overview} 
+                        releaseDate={movie.release_date} 
+                        key={index}/>
                     })}
                 </ul>
             </section>
