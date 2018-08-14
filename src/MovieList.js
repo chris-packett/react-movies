@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 import Movie from './Movie'
 import movies from './1989.json'
 
-    // let new_release_date = movies.results[0].release_date.split('-').join('')
-    // new_release_date = parseInt(new_release_date)
-    // console.log(new_release_date)
-    // sortedMovies = movies.results.map((movie) => {
-    //     movieDateNumber = parseInt(movie.release_date.split('-').join(''))
-    //     movieDateNumber.sort(sortByNumber)
-    // })
-
 class MovieList extends Component {
     render() {
         return (
@@ -24,11 +16,31 @@ class MovieList extends Component {
                             return 0
                         }
                     }).map((movie, index) => {
+                        let releaseDate = movie.release_date
+                        let splitReleaseDate = releaseDate.split('-')
+                        let parts = new Date(splitReleaseDate[0], splitReleaseDate[1] - 1, splitReleaseDate[2])
+                        parts = parts.toDateString().split(' ')
+                        parts[2] = parseInt(parts[2]).toString()
+                        let dayWithSuffix = ''
+                        if (parts[2] == '1' || parts[2] == '21' || parts[2] == '31') {
+                            dayWithSuffix += `${parts[2]}st`
+                        }
+                        else if (parts[2] == '2' || parts[2] == '22') {
+                            dayWithSuffix += `${parts[2]}nd`
+                        }
+                        else if (parts[2] == '3' || parts[2] == '23') {
+                            dayWithSuffix += `${parts[2]}rd`
+                        }
+                        else {
+                            dayWithSuffix += `${parts[2]}th`
+                        }
+                        let releaseDateString = `${parts[1]} ${dayWithSuffix}`
+
                         return <Movie 
                         title={movie.title} 
                         image={movie.poster_path} 
                         plot={movie.overview} 
-                        releaseDate={movie.release_date} 
+                        releaseDate={releaseDateString} 
                         key={index}/>
                     })}
                 </ul>
