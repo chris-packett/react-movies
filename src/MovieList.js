@@ -22,13 +22,13 @@ class MovieList extends Component {
                         parts = parts.toDateString().split(' ')
                         parts[2] = parseInt(parts[2]).toString()
                         let dayWithSuffix = ''
-                        if (parts[2] == '1' || parts[2] == '21' || parts[2] == '31') {
+                        if (parts[2] === '1' || parts[2] === '21' || parts[2] === '31') {
                             dayWithSuffix += `${parts[2]}st`
                         }
-                        else if (parts[2] == '2' || parts[2] == '22') {
+                        else if (parts[2] === '2' || parts[2] === '22') {
                             dayWithSuffix += `${parts[2]}nd`
                         }
-                        else if (parts[2] == '3' || parts[2] == '23') {
+                        else if (parts[2] === '3' || parts[2] === '23') {
                             dayWithSuffix += `${parts[2]}rd`
                         }
                         else {

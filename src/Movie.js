@@ -7,7 +7,7 @@ class Movie extends Component {
             <li className="movie">
                 <section className="movie-title-and-image">
                     <h3 className="center">{this.props.title}</h3>
-                    <img src={baseURL + this.props.image} />
+                    <img src={baseURL + this.props.image} alt="movie-pic"/>
                 </section>
                 <section className="movie-release-date-and-description">
                     <h3 className="movie-release-date">Release Date: <span>{this.props.releaseDate}</span></h3>
